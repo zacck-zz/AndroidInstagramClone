@@ -21,6 +21,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
+import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.Parse;
 import com.parse.ParseAnalytics;
@@ -28,6 +29,8 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.SaveCallback;
+
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -37,8 +40,54 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     ParseAnalytics.trackAppOpenedInBackground(getIntent());
+    /* Advanced Querying with Parse  */
 
-    /*
+
+      ParseQuery<ParseObject> mScoreQuery = ParseQuery.getQuery("Score");
+      /*//get specific objects and update them
+      mScoreQuery.whereEqualTo("username", "Zacck");
+      mScoreQuery.setLimit(1);
+      mScoreQuery.findInBackground(new FindCallback<ParseObject>() {
+          @Override
+          public void done(List<ParseObject> objects, ParseException e) {
+              if(e == null)
+              {
+                  Log.i("FindInBackground", "Retrieved "+ objects.size()+" results");
+                  for(ParseObject mObject : objects)
+                  {
+                      Log.i("Score", String.valueOf(mObject.get("score")));
+                      //mObject.put("score",259);
+                      //mObject.saveInBackground();
+                  }
+              }
+          }
+      });
+
+      get a full list
+      mScoreQuery.findInBackground(new FindCallback<ParseObject>() {
+          @Override
+          public void done(List<ParseObject> objects, ParseException e) {
+              if(e == null)
+              {
+                  Log.i("FindInBackground", "Retrieved "+ objects.size()+" results");
+                  for(ParseObject mObject : objects)
+                  {
+                      Log.i("UserName", String.valueOf(mObject.get("username")));
+                  }
+
+              }
+              else
+              {
+
+
+
+              }
+
+          }
+      });
+
+
+
     ParseObject score = new ParseObject("Score");
       score.put("username", "Zacck");
       score.put("points", 1999);
@@ -57,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
       */
 
       //updating Parse data
-      // we are querying the object we made
+      /*we are querying the object we made
       ParseQuery<ParseObject> mParseQuery = ParseQuery.getQuery("Score");
       mParseQuery.getInBackground("9SfVA6v0lm", new GetCallback<ParseObject>() {
           @Override
@@ -91,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
               }
           }
       });
+      */
 
 
 
