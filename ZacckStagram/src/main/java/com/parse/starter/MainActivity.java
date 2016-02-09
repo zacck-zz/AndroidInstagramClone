@@ -23,12 +23,15 @@ import android.widget.ImageView;
 
 import com.parse.FindCallback;
 import com.parse.GetCallback;
+import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseAnalytics;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 import com.parse.SaveCallback;
+import com.parse.SignUpCallback;
 
 import java.util.List;
 
@@ -40,11 +43,86 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     ParseAnalytics.trackAppOpenedInBackground(getIntent());
-    /* Advanced Querying with Parse  */
 
 
-      ParseQuery<ParseObject> mScoreQuery = ParseQuery.getQuery("Score");
-      /*//get specific objects and update them
+      //working with parseusers
+
+      /*Logging Users In
+      ParseUser.logInInBackground("Zacck", "mUserPass" ,new LogInCallback() {
+          @Override
+          public void done(ParseUser user, ParseException e) {
+              if(user != null)
+              {
+                  Log.i("Login", "Success");
+              }
+              else
+              {
+                  Log.i("Login", "unsuccessful");
+                  e.printStackTrace();
+              }
+          }
+      });
+      */
+      if(ParseUser.getCurrentUser() != null)
+      {
+          Log.i("LoggedIn", "UserLogged In");
+          ParseUser.logOut();
+
+      }
+      else
+      {
+          Log.i("LoggediIN", "User Is not logged in");
+      }
+
+
+
+  }
+
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu) {
+    // Inflate the menu; this adds items to the action bar if it is present.
+    getMenuInflater().inflate(R.menu.menu_main, menu);
+    return true;
+  }
+
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    // Handle action bar item clicks here. The action bar will
+    // automatically handle clicks on the Home/Up button, so long
+    // as you specify a parent activity in AndroidManifest.xml.
+    int id = item.getItemId();
+
+    //noinspection SimplifiableIfStatement
+    if (id == R.id.action_settings) {
+      return true;
+    }
+
+    return super.onOptionsItemSelected(item);
+  }
+
+     /* Advanced Querying with Parse
+     ParseUser mParseUser = new ParseUser();
+    mParseUser.setUsername("Zacck");
+    mParseUser.setPassword("mUserPass");
+
+
+    mParseUser.signUpInBackground(new SignUpCallback() {
+        @Override
+        public void done(ParseException e) {
+            if(e == null)
+            {
+                Log.i("SignUp", "Succesfull");
+            }
+            else
+            {
+                Log.i("exception", e.toString());
+
+            }
+        }
+    });
+
+      //ParseQuery<ParseObject> mScoreQuery = ParseQuery.getQuery("Score");
+      //get specific objects and update them
       mScoreQuery.whereEqualTo("username", "Zacck");
       mScoreQuery.setLimit(1);
       mScoreQuery.findInBackground(new FindCallback<ParseObject>() {
@@ -105,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
       });
       */
 
-      //updating Parse data
+    //updating Parse data
       /*we are querying the object we made
       ParseQuery<ParseObject> mParseQuery = ParseQuery.getQuery("Score");
       mParseQuery.getInBackground("9SfVA6v0lm", new GetCallback<ParseObject>() {
@@ -145,27 +223,4 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-  }
-
-  @Override
-  public boolean onCreateOptionsMenu(Menu menu) {
-    // Inflate the menu; this adds items to the action bar if it is present.
-    getMenuInflater().inflate(R.menu.menu_main, menu);
-    return true;
-  }
-
-  @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
-    // Handle action bar item clicks here. The action bar will
-    // automatically handle clicks on the Home/Up button, so long
-    // as you specify a parent activity in AndroidManifest.xml.
-    int id = item.getItemId();
-
-    //noinspection SimplifiableIfStatement
-    if (id == R.id.action_settings) {
-      return true;
-    }
-
-    return super.onOptionsItemSelected(item);
-  }
 }
