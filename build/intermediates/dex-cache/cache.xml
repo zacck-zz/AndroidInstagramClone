@@ -2,46 +2,46 @@
 <items version="2" >
 
     <item
-        jar="/Users/robpercival/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="/Users/robpercival/Downloads/Parse-Starter-Project-1.10.1/ParseStarterProject/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-d4370917688e98d570f9c4e6647cdc2b49c9e78b.jar" />
-    </item>
-    <item
-        jar="/Users/robpercival/Downloads/Parse-Starter-Project-1.10.1/ParseStarterProject/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="/Users/robpercival/Downloads/Parse-Starter-Project-1.10.1/ParseStarterProject/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-f44b326afee48975b37cd10677f2c98382f5c8f1.jar" />
-    </item>
-    <item
-        jar="/Users/robpercival/Downloads/Parse-Starter-Project-1.10.1/ParseStarterProject/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="/Users/robpercival/Downloads/Parse-Starter-Project-1.10.1/ParseStarterProject/build/intermediates/pre-dexed/debug/classes-d1b717888d433d9a6bb32e1e0fab801e02c4c573.jar" />
-    </item>
-    <item
-        jar="/Users/robpercival/Downloads/Parse-Starter-Project-1.10.1/ParseStarterProject/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="/Users/robpercival/Downloads/Parse-Starter-Project-1.10.1/ParseStarterProject/build/intermediates/pre-dexed/debug/classes-526d8fffae47d13868da7677ff6325810dcb18cb.jar" />
-    </item>
-    <item
-        jar="/Users/robpercival/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.10.1/a87cb993a12e574a216213d0b8b2b78f6da35d37/parse-android-1.10.1.jar"
+        jar="C:\Users\Zacck\.gradle\caches\modules-2\files-2.1\com.parse\parse-android\1.10.1\a87cb993a12e574a216213d0b8b2b78f6da35d37\parse-android-1.10.1.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="a87cb993a12e574a216213d0b8b2b78f6da35d37">
-        <dex dex="/Users/robpercival/Downloads/Parse-Starter-Project-1.10.1/ParseStarterProject/build/intermediates/pre-dexed/debug/parse-android-1.10.1-26543f76df1c9b81c5a79aabae75c27cbaaf88a5.jar" />
+        <dex dex="C:\Users\Zacck\Downloads\8.1\Instagram\ZacckStagram\build\intermediates\pre-dexed\debug\parse-android-1.10.1-50fb7325ef9a62cd0c7926f7b4363413b7478524.jar" />
     </item>
     <item
-        jar="/Users/robpercival/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.1/44780c2cf98f6a3cf4e77f1234d644758b329201/bolts-android-1.2.1.jar"
+        jar="C:\Users\Zacck\Downloads\8.1\Instagram\ZacckStagram\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="C:\Users\Zacck\Downloads\8.1\Instagram\ZacckStagram\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-cc4c652fdb7b402cd02dba6b9529c4b9c3fa723a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Zacck\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.2.1\44780c2cf98f6a3cf4e77f1234d644758b329201\bolts-android-1.2.1.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="44780c2cf98f6a3cf4e77f1234d644758b329201">
-        <dex dex="/Users/robpercival/Downloads/Parse-Starter-Project-1.10.1/ParseStarterProject/build/intermediates/pre-dexed/debug/bolts-android-1.2.1-fa0831e5b343eb15ad3cda83d7622d1c889efe73.jar" />
+        <dex dex="C:\Users\Zacck\Downloads\8.1\Instagram\ZacckStagram\build\intermediates\pre-dexed\debug\bolts-android-1.2.1-e166ea20bf60249e75760918180149ab2c5224d9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Zacck\Downloads\8.1\Instagram\ZacckStagram\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="C:\Users\Zacck\Downloads\8.1\Instagram\ZacckStagram\build\intermediates\pre-dexed\debug\classes-2166e9a36a55e7c1477822f86f3821618985f675.jar" />
+    </item>
+    <item
+        jar="C:\Users\Zacck\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="C:\Users\Zacck\Downloads\8.1\Instagram\ZacckStagram\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-a084a63e436bdc9457dc46c856071d0a282d0754.jar" />
+    </item>
+    <item
+        jar="C:\Users\Zacck\Downloads\8.1\Instagram\ZacckStagram\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="C:\Users\Zacck\Downloads\8.1\Instagram\ZacckStagram\build\intermediates\pre-dexed\debug\classes-4c0c7ca68077fe4dbc966488db0acb30a018d9a1.jar" />
     </item>
 
 </items>

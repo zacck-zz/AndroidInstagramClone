@@ -16,12 +16,18 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
+import com.parse.GetCallback;
+import com.parse.Parse;
 import com.parse.ParseAnalytics;
+import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.SaveCallback;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -32,11 +38,60 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
     ParseAnalytics.trackAppOpenedInBackground(getIntent());
 
-
+    /*
     ParseObject score = new ParseObject("Score");
       score.put("username", "Zacck");
       score.put("points", 1999);
-      score.saveInBackground();
+      score.saveInBackground(new SaveCallback() {
+          @Override
+          public void done(ParseException e) {
+              if(e == null)
+              {
+                  Log.i("SaveinBackgroud", "Was successful");
+              }
+              else{
+                  Log.i("SaveinBackgroundFailed", e.toString()+" Occured");
+              }
+          }
+      });
+      */
+
+      //updating Parse data
+      // we are querying the object we made
+      ParseQuery<ParseObject> mParseQuery = ParseQuery.getQuery("Score");
+      mParseQuery.getInBackground("9SfVA6v0lm", new GetCallback<ParseObject>() {
+          @Override
+          public void done(ParseObject object, ParseException e) {
+              if(e == null)
+              {
+                  object.put("score","259");
+                  object.saveInBackground();
+              }
+              else
+              {
+                  Log.i("Exception Occured", e.toString());
+
+              }
+          }
+      });
+
+      ParseQuery<ParseObject> mQuery = ParseQuery.getQuery("Score");
+      mQuery.getInBackground("9SfVA6v0lm", new GetCallback<ParseObject>() {
+          @Override
+          public void done(ParseObject object, ParseException e) {
+              if(e == null)
+              {
+                  object.put("username","zacck");
+                  object.saveInBackground();
+              }
+              else
+              {
+                  Log.i("Exception Occured", e.toString());
+
+              }
+          }
+      });
+
 
 
 
