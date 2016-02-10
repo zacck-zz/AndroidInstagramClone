@@ -60,6 +60,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
+        if(ParseUser.getCurrentUser() != null)
+        {
+            Log.i("LoggedIn", "UserLogged In");
+            showUserList();
+            //ParseUser.logOut();;
+
+        }
         etName = (EditText) findViewById(R.id.etUserName);
         etPassword = (EditText) findViewById(R.id.etPassword);
         //btLogin = (Button) findViewById(R.id.btlogin);
@@ -73,8 +80,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         changeSignupModetv.setOnClickListener(this);
 
         etPassword.setOnKeyListener(this);
+        //if user is logged in just got to list
 
 
+
+
+    }
+
+    public void showUserList()
+    {
+        Intent i = new Intent(getApplicationContext(), UserList.class);
+        startActivity(i);
     }
 
 
@@ -101,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void done(ParseException e) {
                         if (e == null) {
                             Log.i("SignUp", "Succesfull");
+                            showUserList();
                         } else {
                             alert(e.getMessage());
 
@@ -121,6 +138,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void done(ParseUser user, ParseException e) {
                         if (user != null) {
                             Log.i("Login", "Success");
+                            showUserList();
                         } else {
                             Log.i("Login", "unsuccessful");
                             e.printStackTrace();
@@ -200,18 +218,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
       /*Logging Users In
       //signing up
 
-
-
-      if(ParseUser.getCurrentUser() != null)
-      {
-          Log.i("LoggedIn", "UserLogged In");
-          ParseUser.logOut();
-
-      }
-      else
-      {
-          Log.i("LoggediIN", "User Is not logged in");
-      }
       */
 
      /* Advanced Querying with Parse
