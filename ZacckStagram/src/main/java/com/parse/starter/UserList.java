@@ -1,7 +1,14 @@
 package com.parse.starter;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -53,5 +60,56 @@ public class UserList extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //show menu on actionbar
+        getMenuInflater().inflate(R.menu.menu_user_list, menu);
+        return true;
+    }
+
+
+    //handle menu item clicks
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.share:
+                //make a photo intent
+                Intent photoIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                //go to the event
+                //using start activity for result
+                startActivityForResult(photoIntent, 1/*use this int to check if the intent returning is the one yoou sent*/);
+
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    //a listener for the result of start activity for result
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //validate the intent
+        if(requestCode == 1 && resultCode == RESULT_OK && data != null)
+        {
+            //collect the returned iMage
+            try {
+                Uri selectedImage = data.getData();
+                Bitmap mBitmapImage = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+                //lets put the image in the image view
+                //mImageView.setImageBitmap(mBitmapImage);
+                Log.i(getPackageName(), "Image Recieved");
+
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
     }
 }

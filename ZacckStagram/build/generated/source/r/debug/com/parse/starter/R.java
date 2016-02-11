@@ -1604,6 +1604,7 @@ containing a value of this type.
         public static final int search_src_text=0x7f0c0049;
         public static final int search_voice_btn=0x7f0c004d;
         public static final int select_dialog_listview=0x7f0c004e;
+        public static final int share=0x7f0c0064;
         public static final int shortcut=0x7f0c0039;
         public static final int showCustom=0x7f0c000f;
         public static final int showHome=0x7f0c0010;
@@ -1678,6 +1679,7 @@ containing a value of this type.
     }
     public static final class menu {
         public static final int menu_main=0x7f0d0000;
+        public static final int menu_user_list=0x7f0d0001;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;
