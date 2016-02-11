@@ -11,13 +11,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseFile;
+import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class UserList extends AppCompatActivity {
@@ -88,6 +94,9 @@ public class UserList extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+    public void alert(String Message) {
+        Toast.makeText(getApplicationContext(), Message, Toast.LENGTH_LONG).show();
+    }
 
     //a listener for the result of start activity for result
 
@@ -104,11 +113,35 @@ public class UserList extends AppCompatActivity {
                 //lets put the image in the image view
                 //mImageView.setImageBitmap(mBitmapImage);
                 Log.i(getPackageName(), "Image Recieved");
+                //attempt Image upload
+                //convert image into byte array
+                ByteArrayOutputStream mImageStream = new ByteArrayOutputStream();
+                mBitmapImage.compress(Bitmap.CompressFormat.PNG, 100, mImageStream);
+                byte[] mImageBytes = mImageStream.toByteArray();
+
+                ParseFile mImage = new ParseFile("zacckscat.png", mImageBytes);
+
+                ParseObject mImageUploadObject = new ParseObject("images");
+                mImageUploadObject.put("username", ParseUser.getCurrentUser().getUsername());
+                mImageUploadObject.put("image", mImage);
+
+                mImageUploadObject.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if (e == null) {
+                            alert("Your Image has been Posted :)");
+                        } else
+                        {
+                            alert(e.getMessage());
+                        }
+                    }
+                });
+
 
             }
             catch(Exception e)
             {
-                e.printStackTrace();
+                alert(e.getMessage());
             }
         }
     }
