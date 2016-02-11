@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -39,6 +41,16 @@ public class UserList extends AppCompatActivity {
         mUserAdp = new ArrayAdapter<String>(UserList.this, android.R.layout.simple_list_item_1,usernames);
 
         userList = (ListView)findViewById(R.id.mUserList);
+
+        //make a clicklistener
+        userList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Intent userFeedIntent = new Intent(getApplicationContext(), UserFeeds.class);
+                userFeedIntent.putExtra("username", usernames.get(position));
+                startActivity(userFeedIntent);
+            }
+        });
         ParseQuery<ParseUser> mUserQuery = ParseUser.getQuery();
         //show other users not current
         mUserQuery.whereNotEqualTo("username", ParseUser.getCurrentUser().getUsername());
@@ -89,6 +101,11 @@ public class UserList extends AppCompatActivity {
                 //using start activity for result
                 startActivityForResult(photoIntent, 1/*use this int to check if the intent returning is the one yoou sent*/);
 
+                return true;
+            case R.id.logout:
+                ParseUser.logOut();
+                Intent loginIntent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(loginIntent);
                 return true;
         }
 

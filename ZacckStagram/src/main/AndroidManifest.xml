@@ -36,7 +36,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserList"></activity>
+        <activity android:name=".UserList" />
+        <activity android:name=".UserFeeds" android:parentActivityName=".UserList" android:label="User Feed"></activity>
     </application>
 
 </manifest>

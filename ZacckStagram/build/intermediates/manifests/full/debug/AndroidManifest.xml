@@ -44,6 +44,10 @@
             </intent-filter>
         </activity>
         <activity android:name="com.parse.starter.UserList" />
+        <activity
+            android:name="com.parse.starter.UserFeeds"
+            android:label="User Feed"
+            android:parentActivityName="com.parse.starter.UserList" />
     </application>
 
 </manifest>
