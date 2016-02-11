@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
+import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -141,6 +142,10 @@ public class UserList extends AppCompatActivity {
                 ParseObject mImageUploadObject = new ParseObject("images");
                 mImageUploadObject.put("username", ParseUser.getCurrentUser().getUsername());
                 mImageUploadObject.put("image", mImage);
+                //give the object a public read access
+                ParseACL mAcl = new ParseACL();
+                mAcl.setPublicReadAccess(true);
+                mImageUploadObject.setACL(mAcl);
 
                 mImageUploadObject.saveInBackground(new SaveCallback() {
                     @Override
